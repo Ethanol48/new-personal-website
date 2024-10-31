@@ -19,17 +19,23 @@
         </div>
 
         <div class="flex gap-3 text-3xl">
-          <div class="transition hover:bg-gray-800 hover:border-gray-600 border-2 p-2 ease-in-out rounded-lg h-fit w-fit flex justify-center items-center">
-            <a class="fa-brands fa-github"  href="https://github.com/Ethanol48"></a>
-          </div>
+          <a class="size-fit" href="https://github.com/Ethanol48">
+            <div class="transition hover:bg-gray-800 hover:border-gray-600 border-2 p-2 ease-in-out rounded-lg h-fit w-fit flex justify-center items-center">
+              <i class="fa-brands fa-github"></i>
+            </div>
+          </a>
 
-          <div class="transition hover:bg-gray-800 hover:border-gray-600 border-2 p-2 ease-in-out rounded-lg h-fit w-fit flex justify-center items-center">
-            <a class="fa-brands fa-medium" href="https://linkedin.com/in/ethan-rouimi"></a>
-          </div>
+          <a class="size-fit" href="https://github.com/Ethanol48">
+            <div class="transition hover:bg-gray-800 hover:border-gray-600 border-2 p-2 ease-in-out rounded-lg h-fit w-fit flex justify-center items-center">
+              <i class="fa-brands fa-medium"></i>
+            </div>
+          </a>
 
-          <div class="transition hover:bg-gray-800 hover:border-gray-600 border-2 p-2 ease-in-out rounded-lg h-fit w-fit flex justify-center items-center">
-            <a class="fa-brands fa-linkedin" href="https://medium.com/@ethan-rouimi"></a>
-          </div>
+          <a class="size-fit" href="https://medium.com/@ethan-rouimi">
+            <div class="transition hover:bg-gray-800 hover:border-gray-600 border-2 p-2 ease-in-out rounded-lg h-fit w-fit flex justify-center items-center">
+              <i class="fa-brands fa-linkedin" href="https://medium.com/@ethan-rouimi"></i>
+            </div>
+          </a>
       </div>
       </Card.Content>
 
