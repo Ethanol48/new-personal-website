@@ -1,7 +1,6 @@
 <script>
   import Pin from "$lib/Pin.svelte";
   import * as Card from "$lib/components/ui/card";
-  import { Button } from "$lib/components/ui/button";
 </script>
 
 
@@ -19,29 +18,31 @@
         </div>
 
         <div class="flex gap-3 text-3xl">
-          <a class="size-fit" href="https://github.com/Ethanol48">
+          <a class="size-fit" aria-label="Github Link" href="https://github.com/Ethanol48">
             <div class="transition hover:bg-gray-800 hover:border-gray-600 border-2 p-2 ease-in-out rounded-lg h-fit w-fit flex justify-center items-center">
               <i class="fa-brands fa-github"></i>
             </div>
           </a>
 
-          <a class="size-fit" href="https://github.com/Ethanol48">
+          <a class="size-fit" aria-label="Medium Link" href="https://github.com/Ethanol48">
             <div class="transition hover:bg-gray-800 hover:border-gray-600 border-2 p-2 ease-in-out rounded-lg h-fit w-fit flex justify-center items-center">
               <i class="fa-brands fa-medium"></i>
             </div>
           </a>
 
-          <a class="size-fit" href="https://medium.com/@ethan-rouimi">
+          <a class="size-fit" aria-label="Linkedin Link" href="https://medium.com/@ethan-rouimi">
             <div class="transition hover:bg-gray-800 hover:border-gray-600 border-2 p-2 ease-in-out rounded-lg h-fit w-fit flex justify-center items-center">
-              <i class="fa-brands fa-linkedin" href="https://medium.com/@ethan-rouimi"></i>
+              <i class="fa-brands fa-linkedin"></i>
             </div>
           </a>
       </div>
       </Card.Content>
 
-      <Card.Content class="gap-1 mt-[-20px] text-xl">
+    <Card.Content class="gap-1 mt-[-20px] text-xl">
+      <p>
         First year student in Computer Science Engineering at EPITA, Paris, France.
-      </Card.Content>
+      </p>
+    </Card.Content>
   </Card.Root>
 </div>
 
