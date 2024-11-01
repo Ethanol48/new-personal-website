@@ -5,14 +5,18 @@
 	let { project }: { project: Project } = $props();
 </script>
 
-<div class="my-5 mt-0 p-5 pt-1" style="max-height: 380px;">
+<div class="mt-5 mt-0 p-5 pt-1" style="max-height: 380px;">
 	<div class="overlay relative overflow-hidden rounded-xl">
 		{#if project.photo === ''}
+
+
 			<img
 				src={notFound}
 				class="z-0 mx-auto overflow-hidden rounded-xl p-[1px]"
 				alt="image-not-found"
 			/>
+
+
 		{:else}
 			<img
 				src={project.photo}
@@ -23,7 +27,7 @@
 
 		<div class="absolute bottom-4 left-1 z-40 p-2">
 			<h3 class="">{project.name}</h3>
-			<p class="text-normal m-0">
+			<p class="m-0" style="font-size: 15px;">
 				{@html project.desc}
 			</p>
 		</div>

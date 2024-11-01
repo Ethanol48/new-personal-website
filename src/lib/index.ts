@@ -6,3 +6,11 @@ export type Project = {
 	desc: string;
 	photo: any;
 };
+
+export type Education = {
+	name: string;
+	dateFrom: string;
+	dateTo: string;
+	desc: string;
+	bulletPoints: string[];
+};
