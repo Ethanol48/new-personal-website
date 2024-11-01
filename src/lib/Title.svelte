@@ -36,11 +36,11 @@
 						</div>
 					</a>
 
-					<a class="size-fit" aria-label="Linkedin Link" href="https://medium.com/@ethan-rouimi">
+					<a class="size-fit " aria-label="Linkedin Link" href="https://linkedin.com/in/ethan-rouimi">
 						<div
 							class="flex h-fit w-fit items-center justify-center rounded-lg border-2 p-2 transition ease-in-out hover:border-gray-600 hover:bg-gray-800"
 						>
-							<i class="fa-brands fa-linkedin"></i>
+							<i class="fa-brands fa-linkedin linkedin"></i>
 						</div>
 					</a>
 				</div>
@@ -52,3 +52,11 @@
 		</Card.Content>
 	</Card.Root>
 </div>
+
+
+<style>
+.linkedin {
+  color: rgba(24, 152, 222, 0.7)
+}
+</style>
+
