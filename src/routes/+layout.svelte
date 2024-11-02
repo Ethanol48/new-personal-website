@@ -22,7 +22,7 @@
 	<div class="flex items-center gap-2 pb-14">
 		<p>Made with</p>
 		<i class="fa-regular fa-heart"></i>
-		<p style="margin: 0px;">with</p>
+		<p style="margin: 0px;">using</p>
 		<img src={svelte} class="size-6" alt="svelte" />
 		<p style="margin: 0px;">and</p>
 		<img src={shadcn} class="size-6 rounded" alt="shadcn" />
