@@ -8,6 +8,18 @@
 /*  font-family: "Roboto";*/
 /*}*/
 
+:root {
+	--primary: 218 51% 10%;
+}
+
+html body {
+	background-color: #28394b;
+}
+
+.my-toast {
+	background-color: hsl(var(--primary));
+}
+
 /* Typography */
 h1 {
 	@apply scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl;

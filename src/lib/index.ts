@@ -5,6 +5,7 @@ export type Project = {
 	date: string;
 	desc: string;
 	photo: any;
+	badges: string[];
 };
 
 export type Education = {
