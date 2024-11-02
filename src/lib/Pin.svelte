@@ -1,6 +1,6 @@
 <svg
-	class="w-[15px]"
-	style="margin:0; color: #bf2626;"
+	class="w-[18px] min-w-[18px]"
+	style="margin:0; margin-top: 0px; color: #bf2626;"
 	viewBox="0 0 15 15"
 	fill="none"
 	xmlns="http://www.w3.org/2000/svg"

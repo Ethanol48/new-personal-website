@@ -3,6 +3,7 @@
 	import * as Card from '$lib/components/ui/card';
 	import EmailToast from './EmailToast.svelte';
 	import { toast } from 'svelte-sonner';
+  import franceFlag from '$lib/assets/France-flag.png'
 
 	function clickToCopy(node, text) {
 		async function copyText() {
@@ -49,6 +50,7 @@
 					<div class="flex align-middle">
 						<Pin />
 						<h2 class="m-0 p-0 text-xl font-normal text-[#aaaaaa]">Paris, France</h2>
+            <img src={franceFlag} class="ml-2 mt-[2px] h-[20px]" alt="">
 					</div>
 				</div>
 

@@ -34,7 +34,9 @@
 		</Card.Header>
 
 		<div class="w-full">
-			<Card.Content class="px-0 pt-2">
+			<Card.Content class="px-1 pt-2">
+
+			  <p class="pl-5">A sample of projects and open-sourced contributions that I've worked in the past, showing what tools I used.</p>
 				<ExperienceImage {projects} />
 			</Card.Content>
 		</div>
