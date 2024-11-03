@@ -1,5 +1,12 @@
 <script lang="ts">
-	import type { Education } from '$lib';
+  type Education = {
+  	name: string;
+  	dateFrom: string;
+  	dateTo: string;
+  	desc: string;
+  	bulletPoints: string[];
+  };
+
 	let studies: Education[] = [
 		{
 			name: 'EPITA',
