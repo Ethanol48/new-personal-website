@@ -24,6 +24,12 @@
 						detail: error
 					})
 				);
+
+				toast(EmailToast, {
+					componentProps: {
+						error: true
+					}
+				});
 			}
 		}
 
