@@ -3,7 +3,8 @@
 	import * as Card from '$lib/components/ui/card';
 	import EmailToast from './EmailToast.svelte';
 	import { toast } from 'svelte-sonner';
-  import franceFlag from '$lib/assets/France-flag.png'
+	import franceFlag from '$lib/assets/France-flag.png';
+	import OnMount from '$lib/OnMount.svelte';
 
 	function clickToCopy(node, text) {
 		async function copyText() {
@@ -41,64 +42,76 @@
 			}
 		};
 	}
+
+	import { fade } from 'svelte/transition';
+	export let delay = 0;
+	export let duration = 0;
 </script>
 
-<div class="mt-10 flex w-full flex-col gap-5">
-	<Card.Root>
-		<Card.Content class="gap-1">
-			<div class="flex justify-between">
-				<div>
-					<h1
-						class="mt-10 scroll-m-20 pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0"
-					>
-						Ethan Rouimi
-					</h1>
-					<div class="flex align-middle">
-						<Pin />
-						<h2 class="m-0 p-0 text-xl font-normal text-[#aaaaaa]">Paris, France</h2>
-            <img src={franceFlag} class="ml-2 mt-[2px] h-[20px]" alt="">
+<OnMount>
+	<div
+		class="mt-10 flex w-full flex-col gap-5"
+		in:fade={{
+			duration: duration,
+			delay: delay
+		}}
+	>
+		<Card.Root>
+			<Card.Content class="gap-1">
+				<div class="flex justify-between">
+					<div>
+						<h1
+							class="mt-10 scroll-m-20 pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0"
+						>
+							Ethan Rouimi
+						</h1>
+						<div class="flex align-middle">
+							<Pin />
+							<h2 class="m-0 p-0 text-xl font-normal text-[#aaaaaa]">Paris, France</h2>
+							<img src={franceFlag} class="ml-2 mt-[2px] h-[20px]" alt="" />
+						</div>
 					</div>
-				</div>
 
-				<div
-					class="flex gap-3 text-3xl"
-					aria-label="Email"
-					use:clickToCopy={'contact@ethan-rouimi.com'}
-				>
 					<div
-						class="flex h-fit w-fit cursor-pointer items-center justify-center rounded-lg border-2 p-2 transition ease-in-out hover:border-gray-600 hover:bg-gray-800"
+						class="flex gap-3 text-3xl"
+						aria-label="Email"
+						use:clickToCopy={'contact@ethan-rouimi.com'}
 					>
-						<i class="fa-regular fa-envelope"></i>
+						<div
+							class="flex h-fit w-fit cursor-pointer items-center justify-center rounded-lg border-2 p-2 transition ease-in-out hover:border-gray-600 hover:bg-gray-800"
+						>
+							<i class="fa-regular fa-envelope"></i>
+						</div>
+
+						<a class="size-fit" aria-label="Github Link" href="https://github.com/Ethanol48">
+							<div
+								class="flex h-fit w-fit items-center justify-center rounded-lg border-2 p-2 transition ease-in-out hover:border-gray-600 hover:bg-gray-800"
+							>
+								<i class="fa-brands fa-github"></i>
+							</div>
+						</a>
+
+						<a
+							class="size-fit"
+							aria-label="Linkedin Link"
+							href="https://linkedin.com/in/ethan-rouimi"
+						>
+							<div
+								class="flex h-fit w-fit items-center justify-center rounded-lg border-2 p-2 transition ease-in-out hover:border-gray-600 hover:bg-gray-800"
+							>
+								<i class="fa-brands fa-linkedin linkedin"></i>
+							</div>
+						</a>
 					</div>
+				</div></Card.Content
+			>
 
-					<a class="size-fit" aria-label="Github Link" href="https://github.com/Ethanol48">
-						<div
-							class="flex h-fit w-fit items-center justify-center rounded-lg border-2 p-2 transition ease-in-out hover:border-gray-600 hover:bg-gray-800"
-						>
-							<i class="fa-brands fa-github"></i>
-						</div>
-					</a>
-
-					<a
-						class="size-fit"
-						aria-label="Linkedin Link"
-						href="https://linkedin.com/in/ethan-rouimi"
-					>
-						<div
-							class="flex h-fit w-fit items-center justify-center rounded-lg border-2 p-2 transition ease-in-out hover:border-gray-600 hover:bg-gray-800"
-						>
-							<i class="fa-brands fa-linkedin linkedin"></i>
-						</div>
-					</a>
-				</div>
-			</div></Card.Content
-		>
-
-		<Card.Content class="mt-[-20px] gap-1 text-xl">
-			<p>First year student in Computer Science Engineering at EPITA, Paris, France.</p>
-		</Card.Content>
-	</Card.Root>
-</div>
+			<Card.Content class="mt-[-20px] gap-1 text-xl">
+				<p>First year student in Computer Science Engineering at EPITA, Paris, France.</p>
+			</Card.Content>
+		</Card.Root>
+	</div>
+</OnMount>
 
 <style>
 	.linkedin {

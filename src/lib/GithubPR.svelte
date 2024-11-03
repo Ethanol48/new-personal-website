@@ -7,7 +7,7 @@
 	type PR = {
 		repo: string;
 		icon: string;
-    desc: string;
+		desc: string;
 		badges: string[];
 	};
 
@@ -16,7 +16,7 @@
 			repo: 'https://github.com/foundry-rs/foundry-fork-db',
 			icon: foundry,
 			badges: ['Rust'],
-      desc: "Added the ability to mutate the state of the simulated EVM blockchain"
+			desc: 'Added the ability to mutate the state of the simulated EVM blockchain'
 		}
 	];
 
@@ -47,7 +47,7 @@
 					{pr.repo.split('https://github.com/')[1]}
 				</h3>
 			</a>
-        <p class="text-lg">{pr.desc}</p>
+			<p class="text-lg">{pr.desc}</p>
 		</Card.Content>
 	</Card.Root>
 {/each}

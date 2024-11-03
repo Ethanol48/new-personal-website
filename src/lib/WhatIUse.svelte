@@ -58,25 +58,38 @@
 			icon: golangIcon
 		}
 	];
+
+	import { fade } from 'svelte/transition';
+	import OnMount from './OnMount.svelte';
+	export let delay = 0;
+	export let duration = 0;
 </script>
 
-<div class="relative flex w-full flex-col justify-start">
-	<Card.Root class="pt-0">
-		<Card.Header>
-			<div class="flex flex-row items-center gap-4">
-				<h2 class="mt-0">Tools I use</h2>
-				<img src={toolsEmoji} class="w-[25px]" alt="" />
-			</div>
-		</Card.Header>
-
-		<Card.Content class="flex flex-col gap-2 px-7 pt-3">
-			<div class="w-full">
-				<div class="flex gap-3">
-					{#each tools as tool}
-						<img src={tool.icon} class="mt-2 h-[30px]" alt={tool.name} />
-					{/each}
+<OnMount>
+	<div
+		class="relative flex w-full flex-col justify-start"
+		in:fade={{
+			duration: duration,
+			delay: delay
+		}}
+	>
+		<Card.Root class="pt-0">
+			<Card.Header>
+				<div class="flex flex-row items-center gap-4">
+					<h2 class="mt-0">Tools I use</h2>
+					<img src={toolsEmoji} class="w-[25px]" alt="" />
 				</div>
-			</div>
-		</Card.Content>
-	</Card.Root>
-</div>
+			</Card.Header>
+
+			<Card.Content class="flex flex-col gap-2 px-7 pt-3">
+				<div class="w-full">
+					<div class="flex gap-3">
+						{#each tools as tool}
+							<img src={tool.icon} class="mt-2 h-[30px]" alt={tool.name} />
+						{/each}
+					</div>
+				</div>
+			</Card.Content>
+		</Card.Root>
+	</div>
+</OnMount>

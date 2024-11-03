@@ -1,11 +1,11 @@
 <script lang="ts">
-  type Education = {
-  	name: string;
-  	dateFrom: string;
-  	dateTo: string;
-  	desc: string;
-  	bulletPoints: string[];
-  };
+	type Education = {
+		name: string;
+		dateFrom: string;
+		dateTo: string;
+		desc: string;
+		bulletPoints: string[];
+	};
 
 	let studies: Education[] = [
 		{
