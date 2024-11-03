@@ -1,19 +1,8 @@
 <script lang="ts">
 	import * as Card from '$lib/components/ui/card';
-	import daimo from '$lib/assets/Daimo.webp';
 	import brick from '$lib/assets/brick.png';
-	import ExperienceImage from '$lib/ExperienceImage.svelte';
-	import { type Project } from '$lib';
-
-	let projects: Project[] = [
-		{
-			name: 'Daimo',
-			date: 'July 2024',
-			desc: `Implementation of i18n and translation to Spanish to Daimo's <a class="link" href="https://daimo.com">website</a> and <a class="link" href="https://apps.apple.com/us/app/daimo/id6459700343">mobile app</a>`,
-			photo: daimo,
-			badges: ['React', 'Typescript']
-		}
-	];
+	import ExperienceImages from '$lib/ExperienceImages.svelte';
+	import GithubPR from '$lib/GithubPR.svelte';
 
 	/*
         <div class="ml-7 mt-5 flex items-center justify-start gap-4">
@@ -22,23 +11,52 @@
           <h3 class="m-0 p-0">{project.name}</h3>
         </div>
   */
+
+	import svelte from '$lib/assets/prog-icons/svelte-icon.svg';
+	import shadcn from '$lib/assets/shadcn.png';
+  import { fade } from 'svelte/transition';
+  import OnMount from './OnMount.svelte';
+  export let delay = 0;
+  export let duration = 0;
 </script>
 
-<div class="flex w-full flex-col justify-start">
-	<Card.Root class="pt-0">
-		<Card.Header>
-			<div class="flex flex-row items-center gap-4">
-				<h2 class="mb-[-10px] mt-0">Past Work</h2>
-				<img src={brick} class="right-2 top-2 size-9" alt="" />
-			</div>
-		</Card.Header>
+<OnMount>
+  <div
+    class="flex w-full flex-col justify-start"
+    in:fade={{ 
+      duration: duration,
+      delay: delay
+    }}
+  >
+    <Card.Root class="pt-0">
+      <Card.Header>
+        <div class="flex flex-row items-center gap-4">
+          <h2 class="mb-2 mt-0">Past Work</h2>
+          <img src={brick} class="right-2 top-2 size-9" alt="" />
+        </div>
+      </Card.Header>
 
-		<div class="w-full">
-			<Card.Content class="px-1 pt-2">
+      <div class="w-full">
+        <Card.Content class="px-1 pt-2">
+          <p class="mb-5 pl-5">
+            A sample of projects and open-sourced contributions that I've worked in the past, showing
+            what tools I used.
+          </p>
+          <GithubPR />
+          <ExperienceImages />
+        </Card.Content>
+      </div>
+    </Card.Root>
 
-			  <p class="pl-5">A sample of projects and open-sourced contributions that I've worked in the past, showing what tools I used.</p>
-				<ExperienceImage {projects} />
-			</Card.Content>
-		</div>
-	</Card.Root>
-</div>
+    <div 
+      class="flex items-center gap-2 py-10 justify-center w-full"
+    >
+      <p>Made with</p>
+      <i class="fa-solid fa-heart text-[#bf2222]"></i>
+      <p style="margin: 0px;">using</p>
+      <img src={svelte} class="size-6" alt="svelte" />
+      <p style="margin: 0px;">and</p>
+      <img src={shadcn} class="size-6 rounded" alt="svelte-shadcn" />
+    </div>
+  </div>
+</OnMount>
