@@ -16,9 +16,51 @@
 	import shadcn from '$lib/assets/shadcn.png';
 	import { fade } from 'svelte/transition';
 	import OnMount from './OnMount.svelte';
-	export let delay = 0;
-	export let duration = 0;
+	import { onMount } from 'svelte';
+	
+
+  let { delay = 0, duration = 0 } = $props();
+  let ZIndex = $state(0);
+
+  let fold = $state(false);
+
+	import { tick } from 'svelte';
+
+	$effect.pre(() => {
+		tick().then(() => {
+        let divs = document.querySelector("#experiences");
+        if (divs?.children.length !== 3) {
+          console.log("aun no ha cargado")
+        } else {
+
+          // arange cards
+          changeNodes(divs.children)
+        }
+		});
+	});
+
+  function getNumberFromPixels(elem: string): number {
+    console.log("debug width: ", elem);
+    return parseInt(elem.split("px")[0]);
+  }
+
+  function changeNodes(elems: HTMLElement[]) {
+    for (let i = 0; i < elems.length; i++) {
+      const elem = elems[i];
+
+      elem.style.marginLeft = `${(5 * (elems.length - i))}px`;
+      elem.style.marginRight = `${(5 * (elems.length - i))}px`;
+
+      if (i == 1) {
+        elem.style.setProperty("margin-top", `${(-100 * i) - 15}px`);
+      } else {
+        elem.style.setProperty("margin-top", `${(-100 * i)}px`);
+      }
+    }
+  }
+
 </script>
+
 
 <OnMount>
 	<div
@@ -42,8 +84,10 @@
 						A sample of projects and open-sourced contributions that I've worked in the past,
 						showing what tools I used.
 					</p>
-					<GithubPR />
-					<ExperienceImages />
+          <div id="experiences">
+            <GithubPR {ZIndex} />
+            <ExperienceImages ZIndex={ZIndex + 20} />
+          </div>
 				</Card.Content>
 			</div>
 		</Card.Root>
