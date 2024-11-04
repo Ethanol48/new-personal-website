@@ -19,7 +19,7 @@
   class={cn("container-bandera w-fit h-fit", className)}
   style={styleAjusted}
 >
-  <div class="relative">
+  <div class="relative otro">
     <svg class="absolute top-1 left-[1px] z-10" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="4" zoomAndPan="magnify" viewBox="0 0 4 3" height="4" preserveAspectRatio="xMidYMid meet" version="1.0">
       <circle cx="1.8" cy="1.5" r="0.8" stroke="gainsboro" fill="gainsboro"></circle>
     </svg>
@@ -31,9 +31,15 @@
 </div>
 
 <style>
+
+.otro {
+  rotate: 2deg;
+}
+
 .container-bandera {
   /*margin-top: -20px;*/
   margin-left: 10px;
+  animation-delay: 50ms;
 }
 
 .flag {

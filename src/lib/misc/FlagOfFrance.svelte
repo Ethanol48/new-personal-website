@@ -33,7 +33,6 @@
   /*scale: 1.1;*/
   /*margin-top: -20px;*/
   margin-right: 5px;
-  animation-delay: 50ms;
 }
 
 .otro {

@@ -133,24 +133,24 @@
          transform: translateX(0) rotate(0deg); /* Comienza en su posición original */
      }
 
-     30% {
-         transform: translateX(-10px) rotate(-5deg); /* Mueve a la derecha */
+     20% {
+         transform: translateX(-7px) rotate(-5deg); /* Mueve a la derecha */
      }
 
-     40% {
-         transform: translateX(10px) rotate(+5deg); /* Mueve a la izquierda */
+     30% {
+         transform: translateX(7px) rotate(+5deg); /* Mueve a la izquierda */
      }
 
      50% {
-         transform: translateX(-10px) rotate(-5deg); /* Mueve a la derecha */
-     }
-
-     60% {
-         transform: translateX(10px) rotate(+5deg); /* Mueve a la izquierda */
+         transform: translateX(-7px) rotate(-5deg); /* Mueve a la derecha */
      }
 
      70% {
-         transform: translateX(10px) rotate(+5deg); /* Mueve a la izquierda */
+         transform: translateX(7px) rotate(+5deg); /* Mueve a la izquierda */
+     }
+
+     80% {
+         transform: translateX(7px) rotate(+5deg); /* Mueve a la izquierda */
      }
     
      to {
