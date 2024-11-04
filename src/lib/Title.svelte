@@ -51,6 +51,7 @@
 <OnMount>
 	<div
 		class="mt-10 flex w-full flex-col gap-5"
+    style="z-index: 0;"
 		in:fade={{
 			duration: duration,
 			delay: delay

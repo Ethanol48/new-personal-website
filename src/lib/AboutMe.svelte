@@ -11,13 +11,8 @@
 	import typescriptIcon from '$lib/assets/prog-icons/typescript-icon.svg';
 	import toolsEmoji from '$lib/assets/tools.png';
 
-	/*
-        <div class="ml-7 mt-5 flex items-center justify-start gap-4">
-          <p class="m-0 p-0 text-2xl text-sky-200">{project.date}</p>
-          <p class="text-bold p-0" style="margin: 0px;">-</p>
-          <h3 class="m-0 p-0">{project.name}</h3>
-        </div>
-  */
+  import FlagOfSpain from '$lib/misc/FlagOfSpain.svelte'
+  import FlagOfFrance from '$lib/misc/FlagOfFrance.svelte'
 
 	type Tool = {
 		name: string;
@@ -59,15 +54,18 @@
 		}
 	];
 
-	import { fade } from 'svelte/transition';
+	
+  import { fade } from 'svelte/transition';
 	import OnMount from './OnMount.svelte';
 	export let delay = 0;
 	export let duration = 0;
+
 </script>
 
 <OnMount>
 	<div
-		class="relative flex w-full flex-col justify-start"
+		class="relative flex w-full flex-col justify-start about"
+    style="z-index: 2;"
 		in:fade={{
 			duration: duration,
 			delay: delay
@@ -76,20 +74,29 @@
 		<Card.Root class="pt-0">
 			<Card.Header>
 				<div class="flex flex-row items-center gap-4">
-					<h2 class="mt-0">Tools I use</h2>
-					<img src={toolsEmoji} class="w-[25px]" alt="" />
+					<h2 class="mt-0">About me</h2>
 				</div>
 			</Card.Header>
 
 			<Card.Content class="flex flex-col gap-2 px-7 pt-3">
 				<div class="w-full">
-					<div class="flex gap-3">
-						{#each tools as tool}
-							<img src={tool.icon} class="mt-2 h-[30px]" alt={tool.name} />
-						{/each}
-					</div>
+          <p>Cositas</p>
 				</div>
 			</Card.Content>
 		</Card.Root>
+  
+    <FlagOfFrance />
+    <FlagOfSpain />
 	</div>
 </OnMount>
+
+<style>
+
+  .about :global(.container-bandera) {
+    /*scale: 2;*/
+  }
+  .about:hover :global(.container-bandera) {
+    scale: 1.2;
+  }
+</style>
+
