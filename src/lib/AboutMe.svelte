@@ -57,19 +57,42 @@
 	
   import { fade } from 'svelte/transition';
 	import OnMount from './OnMount.svelte';
+	import { onMount } from 'svelte';
+
 	export let delay = 0;
 	export let duration = 0;
+
+  function handleMouseEnter(elem: any) {
+
+    elem = elem.target;
+    
+    let banderas = elem.querySelectorAll(".container-bandera");
+    console.log("mouse enter")
+
+    for (let i = 0; i < banderas.length; i++) {
+      const flag = banderas[i];
+      flag.classList.add("animated");
+
+      flag.addEventListener("animationend", (f: any) => {
+        f.target.classList.remove("animated");
+      })
+    }
+
+  }
 
 </script>
 
 <OnMount>
 	<div
+    id="about"
 		class="relative flex w-full flex-col justify-start about"
     style="z-index: 2;"
 		in:fade={{
 			duration: duration,
 			delay: delay
 		}}
+    on:mouseenter={handleMouseEnter}
+
 	>
 		<Card.Root class="pt-0">
 			<Card.Header>
@@ -85,18 +108,58 @@
 			</Card.Content>
 		</Card.Root>
   
-    <FlagOfFrance />
-    <FlagOfSpain />
+    <div 
+      class="absolute right-2 top-[-20px] flex "
+      style="z-index: -2;"
+    >
+      <FlagOfFrance />
+      <FlagOfSpain />
+    </div>
+
 	</div>
 </OnMount>
 
 <style>
 
-  .about :global(.container-bandera) {
-    /*scale: 2;*/
+  :global(.animated) {
+    animation: moveRightLeft 2s;
+    @apply transition-all
+
   }
-  .about:hover :global(.container-bandera) {
-    scale: 1.2;
+
+  @keyframes moveRightLeft {
+
+     from {
+         transform: translateX(0) rotate(0deg); /* Comienza en su posición original */
+     }
+
+     30% {
+         transform: translateX(-10px) rotate(-5deg); /* Mueve a la derecha */
+     }
+
+     40% {
+         transform: translateX(10px) rotate(+5deg); /* Mueve a la izquierda */
+     }
+
+     50% {
+         transform: translateX(-10px) rotate(-5deg); /* Mueve a la derecha */
+     }
+
+     60% {
+         transform: translateX(10px) rotate(+5deg); /* Mueve a la izquierda */
+     }
+
+     70% {
+         transform: translateX(10px) rotate(+5deg); /* Mueve a la izquierda */
+     }
+    
+     to {
+         transform: translateX(0px) rotate(0deg); /* Comienza en su posición original */
+     }
+
   }
+
+
+
 </style>
 

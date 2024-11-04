@@ -16,12 +16,14 @@
 </script>
 
 <div 
-  class={cn("absolute container-bandera w-fit h-fit", className)}
+  class={cn("container-bandera w-fit h-fit", className)}
   style={styleAjusted}
 >
   <div class="relative">
+    <svg class="absolute top-1 left-[1px] z-10" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="4" zoomAndPan="magnify" viewBox="0 0 4 3" height="4" preserveAspectRatio="xMidYMid meet" version="1.0">
+      <circle cx="1.8" cy="1.5" r="0.8" stroke="gainsboro" fill="gainsboro"></circle>
+    </svg>
     <svg class="stick absolute left-[1px] top-[2.5px]" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="3.5" zoomAndPan="magnify" viewBox="0 0 3 40.000001" height="40" preserveAspectRatio="xMidYMid meet" version="1.0">
-      <circle cx="2" cy="2.5" r="1" stroke="gainsboro" fill="gainsboro"></circle>
       <line x1="2" y1="3" x2="2" y2="25" style="stroke:gainsboro;stroke-width:2" />
     </svg>
     <img class="flag size-7" src={flagOfSpain} alt="" />
@@ -30,11 +32,11 @@
 
 <style>
 .container-bandera {
-  left: 50px;
+  /*margin-top: -20px;*/
+  margin-left: 10px;
 }
 
 .flag {
-  rotate: 0deg;
   margin-left: 2.5px;
 }
 
