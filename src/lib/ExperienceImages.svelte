@@ -34,16 +34,29 @@
 		}
 	];
 
-  function getMargin(i: number) {
-    return `mt-[-${1000 - (i * 200)}px]`;
-  }
+  import { cn } from './utils';
+
+	// function changeNodes(elems: HTMLElement[]) {
+	//   for (let i = 0; i < elems.length; i++) {
+	//     const elem = elems[i];
+	//
+	//     elem.style.marginLeft = `${(5 * (elems.length - i))}px`;
+	//     elem.style.marginRight = `${(5 * (elems.length - i))}px`;
+	//
+	//     if (i == 1) {
+	//       elem.style.setProperty("margin-top", `${(-100 * i) - 15}px`);
+	//     } else {
+	//       elem.style.setProperty("margin-top", `${(-100 * i)}px`);
+	//     }
+	//   }
+	// }
 
   export let ZIndex: number;
 </script>
 
 {#each projects as project, i}
 	<div 
-    class="mt-5 p-4 py-1 {getMargin(i)} wrapper" 
+    class={cn(`p-4 py-1 wrapper`, "")}
     style="max-height: 380px; z-index: {ZIndex + i};"
   >
 		<div 
@@ -113,5 +126,6 @@
        rgba(255, 255, 255, 0.1) 100%
      );
   }
+
 
 </style>

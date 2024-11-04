@@ -20,50 +20,77 @@
 	
 
   let { delay = 0, duration = 0 } = $props();
-  let ZIndex = $state(0);
+  let ZIndex: number = $state(0);
 
   let fold = $state(false);
+  
+  function handleOnHover() {
+    fold = true;
+  }
 
 	import { tick } from 'svelte';
 
-	$effect.pre(() => {
-		tick().then(() => {
-        let divs = document.querySelector("#experiences");
-        if (divs?.children.length !== 3) {
-          console.log("aun no ha cargado")
-        } else {
+	//$effect.pre(() => {
+	//	tick().then(() => {
+	//
+	//       let experienceCard = document.getElementById("experience-card");
+	//
+	//       let container = document.querySelector("#experiences"); 
+	//       experienceCard?.addEventListener("mouseenter", () => { 
+	//         console.log("mouse enter: experience")
+	//         unFoldNodes(divs.children);
+	//       })
+	//
+	//       let divs = container;
+	//
+	//       if (divs?.children.length !== 3) {
+	//         console.log("aun no ha cargado")
+	//       } else {
+	//
+	//         // arange cards
+	//         //changeNodes(divs.children)
+	//       }
+	//	});
+	//});
+	//
+	// function getNumberFromPixels(elem: string): number {
+	//   console.log("debug width: ", elem);
+	//   return parseInt(elem.split("px")[0]);
+	// }
+	//
+	// function unFoldNodes(elems: HTMLElement[]) {
+	//   for (let i = 0; i < elems.length; i++) {
+	//     const elem = elems[i];
+	//
+	//     //elem.style.setProperty("margin-top", `0px`);
+	//     console.log(elem.classList);
+	//   }
+	// }
+	//
+	//
+	// function changeNodes(elems: HTMLElement[]) {
+	//   for (let i = 0; i < elems.length; i++) {
+	//     const elem = elems[i];
+	//
+	//     elem.style.marginLeft = `${(5 * (elems.length - i))}px`;
+	//     elem.style.marginRight = `${(5 * (elems.length - i))}px`;
+	//
+	//     if (i == 1) {
+	//       elem.style.setProperty("margin-top", `${(-100 * i) - 15}px`);
+	//     } else {
+	//       elem.style.setProperty("margin-top", `${(-100 * i)}px`);
+	//     }
+	//   }
+	// }
 
-          // arange cards
-          changeNodes(divs.children)
-        }
-		});
-	});
-
-  function getNumberFromPixels(elem: string): number {
-    console.log("debug width: ", elem);
-    return parseInt(elem.split("px")[0]);
-  }
-
-  function changeNodes(elems: HTMLElement[]) {
-    for (let i = 0; i < elems.length; i++) {
-      const elem = elems[i];
-
-      elem.style.marginLeft = `${(5 * (elems.length - i))}px`;
-      elem.style.marginRight = `${(5 * (elems.length - i))}px`;
-
-      if (i == 1) {
-        elem.style.setProperty("margin-top", `${(-100 * i) - 15}px`);
-      } else {
-        elem.style.setProperty("margin-top", `${(-100 * i)}px`);
-      }
-    }
-  }
+  
 
 </script>
 
 
 <OnMount>
 	<div
+    id="experience-card"
 		class="flex w-full flex-col justify-start"
 		in:fade={{
 			duration: duration,
@@ -102,3 +129,47 @@
 		</div>
 	</div>
 </OnMount>
+
+<style>
+  /*#experience-card:hover > #experiences > :global(div) {*/
+  /*  margin-top: 0px;*/
+  /*  margin-right: 0px;*/
+  /*  margin-left: 0px;*/
+  /*}*/
+
+  /*#experiences > :global(div) {*/
+  /*  @apply transition*/
+  /*}*/
+
+  #experience-card:hover #experiences > :global(div) {
+    margin: 0; /* Esto aplicará un margen de 0 a todos los divs dentro de #experiences */
+    margin-top: 10px;
+  }
+
+  #experiences > :global(div) {
+    transition: margin 0.7s ease-in-out; /* Añade transición a los márgenes */
+}
+
+  #experiences > :global(div:nth-child(1)) {
+        margin-left: 10px;
+        margin-right: 10px;
+  }
+
+  #experiences > :global(div:nth-child(2)) {
+        margin-top: -105px;
+        margin-left: 5px;
+        margin-right: 5px;
+  }
+
+  #experiences > :global(div:nth-child(3)) {
+        margin-top: -200px;
+        margin-left: 0px;
+        margin-right: 0px;
+  }
+
+  #experiences > :global(div:nth-child(4)) {
+        margin-top: -300px;
+  }
+
+  
+</style>
