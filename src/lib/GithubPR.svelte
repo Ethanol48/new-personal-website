@@ -16,7 +16,7 @@
 			repo: 'https://github.com/foundry-rs/foundry-fork-db',
 			icon: foundry,
 			badges: ['Rust'],
-			desc: 'Added the ability to mutate the state of the simulated EVM blockchain'
+			desc: 'Added the ability to mutate state of a simulated EVM blockchain'
 		}
 	];
 
