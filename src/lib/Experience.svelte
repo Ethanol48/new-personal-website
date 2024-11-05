@@ -130,46 +130,43 @@
 	</div>
 </OnMount>
 
-<style>
-  /*#experience-card:hover > #experiences > :global(div) {*/
-  /*  margin-top: 0px;*/
-  /*  margin-right: 0px;*/
-  /*  margin-left: 0px;*/
-  /*}*/
-
-  /*#experiences > :global(div) {*/
-  /*  @apply transition*/
-  /*}*/
-
-  #experience-card:hover #experiences > :global(div) {
-    margin: 0; /* Esto aplicará un margen de 0 a todos los divs dentro de #experiences */
-    margin-top: 10px;
+<style lang="scss">
+  #experience-card {
+    &:hover {
+      #experiences {
+        > :global(div) {
+          margin: 0;
+          margin-top: 10px;
+        }
+      }
+    }
   }
 
-  #experiences > :global(div) {
-    transition: margin 0.7s ease-in-out; /* Añade transición a los márgenes */
-}
+  @media (min-width: 768px) {
+    #experiences {
+      > :global(div) {
+        transition: margin 0.7s ease-in-out;
 
-  #experiences > :global(div:nth-child(1)) {
-        margin-left: 10px;
-        margin-right: 10px;
+        @for $i from 1 through 4 {
+          $top-margin: if($i == 1, 0, (-100px * ($i - 1)) + if($i == 2, -10, -5)); // No margen top para el primer elemento
+          $side-margin: 10px - 5px * ($i - 1); // Decrementa 5px en cada iteración
+
+          &:nth-child(#{$i}) {
+            margin-top: $top-margin;
+            margin-left: $side-margin;
+            margin-right: $side-margin;
+          }
+        }
+      }
+    }
   }
 
-  #experiences > :global(div:nth-child(2)) {
-        margin-top: -105px;
-        margin-left: 5px;
-        margin-right: 5px;
+  @media (max-width: 768px) {
+    #experiences {
+      > :global(div) {
+        transition: margin 0.7s ease-in-out;
+        margin-top: 10px;
+      }
+    }
   }
-
-  #experiences > :global(div:nth-child(3)) {
-        margin-top: -200px;
-        margin-left: 0px;
-        margin-right: 0px;
-  }
-
-  #experiences > :global(div:nth-child(4)) {
-        margin-top: -300px;
-  }
-
-  
 </style>
