@@ -9,6 +9,8 @@ const config = {
 
 	onwarn: (warning, handler) => {
 		if (warning.code.startsWith('a11y_')) return;
+		if (warning.code.startsWith('a11y_no_static')) return;
+
 		handler(warning);
 	},
 

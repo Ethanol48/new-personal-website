@@ -1,15 +1,14 @@
 <script lang="ts">
 	import * as Card from '$lib/components/ui/card';
+	import ProgIcon from '$lib/misc/ProgIcon.svelte';
 
 	import pythonIcon from '$lib/assets/prog-icons/python-icon.svg';
 	import javascriptIcon from '$lib/assets/prog-icons/javascript-icon.svg';
-	import linuxIcon from '$lib/assets/prog-icons/linux-icon.svg';
 	import svelteIcon from '$lib/assets/prog-icons/svelte-icon.svg';
 	import rustIcon from '$lib/assets/prog-icons/rust-icon.svg';
 	import golangIcon from '$lib/assets/prog-icons/go-icon.svg';
 	import solidityIcon from '$lib/assets/prog-icons/solidity-icon.svg';
 	import typescriptIcon from '$lib/assets/prog-icons/typescript-icon.svg';
-	import toolsEmoji from '$lib/assets/tools.png';
 
 	import FlagOfSpain from '$lib/misc/FlagOfSpain.svelte';
 	import FlagOfFrance from '$lib/misc/FlagOfFrance.svelte';
@@ -19,23 +18,39 @@
 		icon: string;
 	};
 
-	let tools: Tool[] = [
-		//{
-		//	name: 'Python',
-		//	icon: pythonIcon
-		//},
-		//{
-		//	name: 'Linux',
-		//	icon: linuxIcon
-		//},
-		//{
-		//	name: 'Rust',
-		//	icon: rustIcon
-		//},
-		//{
-		//	name: 'Solidity',
-		//	icon: solidityIcon
-		//},
+	let toolsIHaveUsed: Tool[] = [
+		{
+			name: 'NextJs',
+			icon: rustIcon
+		},
+		{
+			name: 'React',
+			icon: rustIcon
+		},
+		{
+			name: 'Rust',
+			icon: rustIcon
+		},
+		{
+			name: 'Docker',
+			icon: rustIcon
+		},
+
+		{
+			name: 'C#',
+			icon: rustIcon
+		}
+	];
+
+	let toolsImConfortable: Tool[] = [
+		{
+			name: 'Golang',
+			icon: golangIcon
+		},
+		{
+			name: 'Solidity',
+			icon: solidityIcon
+		},
 		{
 			name: 'Javascript',
 			icon: javascriptIcon
@@ -49,8 +64,8 @@
 			icon: svelteIcon
 		},
 		{
-			name: 'Golang',
-			icon: golangIcon
+			name: 'Python',
+			icon: pythonIcon
 		}
 	];
 
@@ -82,6 +97,20 @@
 </script>
 
 <OnMount>
+	<!-- svelte-ignore a11y-missing-attribute -->
+	<!-- svelte-ignore a11y-click-events-have-key-events -->
+	<!-- svelte-ignore a11y-aria-attributes -->
+	<!-- svelte-ignore a11y-aria-activedescendant-has-tabindex -->
+	<!-- svelte-ignore a11y-incorrect-aria-attribute-type -->
+	<!-- svelte-ignore a11y-misplaced-role -->
+	<!-- svelte-ignore a11y-no-redundant-roles -->
+	<!-- svelte-ignore a11y-no-interactive-element-to-noninteractive-role -->
+	<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
+	<!-- svelte-ignore a11y-no-noninteractive-element-to-interactive-role -->
+	<!-- svelte-ignore a11y-role-supports-aria-props -->
+	<!-- svelte-ignore a11y-unknown-role -->
+	<!-- svelte-ignore a11y-role-has-required-aria-props -->
+	<!-- svelte-ignore a11y-no-static-element-interactions -->
 	<div
 		id="about"
 		class={cn('about relative flex w-full flex-col justify-start', className)}
@@ -100,8 +129,34 @@
 			</Card.Header>
 
 			<Card.Content class="flex flex-col gap-2 px-7 pt-3">
-				<div class="w-full">
-					<p>Cositas</p>
+				<div class="flex w-full flex-col gap-2">
+					<div class="mb-3 flex flex-col gap-3">
+						<p class="text-lg" style="margin-top: 0px;">
+							I'm a 21 year old Software developer, I'm from the Canary Islands and I'm a
+							Franco-Spanish citizen
+						</p>
+					</div>
+
+					<h4 class="mb-2">Tools that I'm confortable with:</h4>
+					<div id="prog-icons" class="flex gap-3">
+						{#each toolsImConfortable as tool}
+							{#if tool.name == 'Rust'}
+								<ProgIcon class={'p-[-2]'} image={tool.icon} alt={tool.name} />
+							{:else}
+								<ProgIcon image={tool.icon} alt={tool.name} />
+							{/if}
+						{/each}
+					</div>
+					<h4 class="mb-2">Other tools that I have used:</h4>
+					<div id="prog-icons" class="flex gap-3">
+						{#each toolsIHaveUsed as tool}
+							{#if tool.name == 'Rust'}
+								<ProgIcon class={'p-[-2]'} image={tool.icon} alt={tool.name} />
+							{:else}
+								<ProgIcon image={tool.icon} alt={tool.name} />
+							{/if}
+						{/each}
+					</div>
 				</div>
 			</Card.Content>
 		</Card.Root>
@@ -113,7 +168,24 @@
 	</div>
 </OnMount>
 
-<style>
+<style lang="scss">
+	#prog-icons:hover {
+		:global(.prog:hover) {
+			scale: 1.05;
+			transition: scale background-color 0.2s ease-in-out;
+		}
+
+		// :global(.prog:not(hover)) {
+		//   scale: 0.95;
+		//   transition: scale background-color 0.2s ease-in-out;
+		// }
+
+		:global(.prog) {
+			// transition: scale 0.5s ease-in-out;
+			transition-duration: 0.5s;
+		}
+	}
+
 	:global(.animated) {
 		animation: moveRightLeft 2s;
 		@apply transition-all;
