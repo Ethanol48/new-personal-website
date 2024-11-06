@@ -11,8 +11,8 @@
 	import typescriptIcon from '$lib/assets/prog-icons/typescript-icon.svg';
 	import toolsEmoji from '$lib/assets/tools.png';
 
-  import FlagOfSpain from '$lib/misc/FlagOfSpain.svelte'
-  import FlagOfFrance from '$lib/misc/FlagOfFrance.svelte'
+	import FlagOfSpain from '$lib/misc/FlagOfSpain.svelte';
+	import FlagOfFrance from '$lib/misc/FlagOfFrance.svelte';
 
 	type Tool = {
 		name: string;
@@ -54,45 +54,43 @@
 		}
 	];
 
-	
-  import { fade } from 'svelte/transition';
+	import { fade } from 'svelte/transition';
 	import OnMount from './OnMount.svelte';
-	import { onMount } from 'svelte';
+	import { cn } from './utils';
 
 	export let delay = 0;
 	export let duration = 0;
 
-  function handleMouseEnter(elem: any) {
+	let className = '';
+	export { className as class };
 
-    elem = elem.target;
-    
-    let banderas = elem.querySelectorAll(".container-bandera");
-    console.log("mouse enter")
+	function handleMouseEnter(elem: any) {
+		elem = elem.target;
 
-    for (let i = 0; i < banderas.length; i++) {
-      const flag = banderas[i];
-      flag.classList.add("animated");
+		let banderas = elem.querySelectorAll('.container-bandera');
+		console.log('mouse enter');
 
-      flag.addEventListener("animationend", (f: any) => {
-        f.target.classList.remove("animated");
-      })
-    }
+		for (let i = 0; i < banderas.length; i++) {
+			const flag = banderas[i];
+			flag.classList.add('animated');
 
-  }
-
+			flag.addEventListener('animationend', (f: any) => {
+				f.target.classList.remove('animated');
+			});
+		}
+	}
 </script>
 
 <OnMount>
 	<div
-    id="about"
-		class="relative flex w-full flex-col justify-start about"
-    style="z-index: 2;"
+		id="about"
+		class={cn('about relative flex w-full flex-col justify-start', className)}
+		style="z-index: 2;"
 		in:fade={{
 			duration: duration,
 			delay: delay
 		}}
-    on:mouseenter={handleMouseEnter}
-
+		on:mouseenter={handleMouseEnter}
 	>
 		<Card.Root class="pt-0">
 			<Card.Header>
@@ -103,63 +101,51 @@
 
 			<Card.Content class="flex flex-col gap-2 px-7 pt-3">
 				<div class="w-full">
-          <p>Cositas</p>
+					<p>Cositas</p>
 				</div>
 			</Card.Content>
 		</Card.Root>
-  
-    <div 
-      class="absolute right-2 top-[-20px] flex "
-      style="z-index: -2;"
-    >
-      <FlagOfFrance />
-      <FlagOfSpain />
-    </div>
 
+		<div class="absolute right-2 top-[-20px] flex" style="z-index: -2;">
+			<FlagOfFrance />
+			<FlagOfSpain />
+		</div>
 	</div>
 </OnMount>
 
 <style>
+	:global(.animated) {
+		animation: moveRightLeft 2s;
+		@apply transition-all;
+	}
 
-  :global(.animated) {
-    animation: moveRightLeft 2s;
-    @apply transition-all
+	@keyframes moveRightLeft {
+		from {
+			transform: translateX(0) rotate(0deg); /* Comienza en su posición original */
+		}
 
-  }
+		20% {
+			transform: translateX(-7px) rotate(-5deg); /* Mueve a la derecha */
+		}
 
-  @keyframes moveRightLeft {
+		30% {
+			transform: translateX(7px) rotate(+5deg); /* Mueve a la izquierda */
+		}
 
-     from {
-         transform: translateX(0) rotate(0deg); /* Comienza en su posición original */
-     }
+		50% {
+			transform: translateX(-7px) rotate(-5deg); /* Mueve a la derecha */
+		}
 
-     20% {
-         transform: translateX(-7px) rotate(-5deg); /* Mueve a la derecha */
-     }
+		70% {
+			transform: translateX(7px) rotate(+5deg); /* Mueve a la izquierda */
+		}
 
-     30% {
-         transform: translateX(7px) rotate(+5deg); /* Mueve a la izquierda */
-     }
+		80% {
+			transform: translateX(7px) rotate(+5deg); /* Mueve a la izquierda */
+		}
 
-     50% {
-         transform: translateX(-7px) rotate(-5deg); /* Mueve a la derecha */
-     }
-
-     70% {
-         transform: translateX(7px) rotate(+5deg); /* Mueve a la izquierda */
-     }
-
-     80% {
-         transform: translateX(7px) rotate(+5deg); /* Mueve a la izquierda */
-     }
-    
-     to {
-         transform: translateX(0px) rotate(0deg); /* Comienza en su posición original */
-     }
-
-  }
-
-
-
+		to {
+			transform: translateX(0px) rotate(0deg); /* Comienza en su posición original */
+		}
+	}
 </style>
-

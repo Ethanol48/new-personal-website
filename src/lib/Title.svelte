@@ -1,12 +1,16 @@
-<script>
-	import Pin from '$lib/Pin.svelte';
+<script lang="ts">
 	import * as Card from '$lib/components/ui/card';
 	import EmailToast from './EmailToast.svelte';
 	import { toast } from 'svelte-sonner';
 	import franceFlag from '$lib/assets/France-flag.png';
+	import mapPing from '$lib/assets/map-ping.png';
 	import OnMount from '$lib/OnMount.svelte';
+	import { cn } from '$lib/utils.js';
 
-	function clickToCopy(node, text) {
+	let className = '';
+	export { className as class };
+
+	function clickToCopy(node: any, text: string) {
 		async function copyText() {
 			try {
 				await navigator.clipboard.writeText(text);
@@ -50,8 +54,8 @@
 
 <OnMount>
 	<div
-		class="mt-10 flex w-full flex-col gap-5"
-    style="z-index: 0;"
+		class={cn('flex w-full flex-col gap-5', className)}
+		style="z-index: 0;"
 		in:fade={{
 			duration: duration,
 			delay: delay
@@ -67,7 +71,7 @@
 							Ethan Rouimi
 						</h1>
 						<div class="flex align-middle">
-							<Pin />
+							<img src={mapPing} class="mt-[2px] h-[20px]" alt="" />
 							<h2 class="m-0 p-0 text-xl font-normal text-[#aaaaaa]">Paris, France</h2>
 							<img src={franceFlag} class="ml-2 mt-[2px] h-[20px]" alt="" />
 						</div>

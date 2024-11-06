@@ -3,7 +3,7 @@
 	import { Badge } from '$lib/components/ui/badge/index.js';
 	import daimoLogo from '$lib/assets/daimo-logo.png';
 	import daimo from '$lib/assets/Daimo.webp';
-  import linearGradient from '$lib/assets/linear-graddient.svg';
+	import linearGradient from '$lib/assets/linear-graddient.svg';
 	import PrIconMerged from './PRIconMerged.svelte';
 
 	type Project = {
@@ -34,7 +34,7 @@
 		}
 	];
 
-  import { cn } from './utils';
+	import { cn } from './utils';
 
 	// function changeNodes(elems: HTMLElement[]) {
 	//   for (let i = 0; i < elems.length; i++) {
@@ -51,37 +51,27 @@
 	//   }
 	// }
 
-  export let ZIndex: number;
+	export let ZIndex: number;
 </script>
 
 {#each projects as project, i}
-	<div 
-    class={cn(`p-4 py-1 wrapper`, "")}
-    style="max-height: 380px; z-index: {ZIndex + i};"
-  >
-		<div 
-      class="relative overflow-hidden rounded-xl bg-[#17191c] border-[#2d3139] border-[1px]"
-    >
-      <div class="w-full relative overlay">
-        {#if project.photo === ''}
-          <img
-            src={notFound}
-            class="z-0 mx-auto overflow-hidden rounded-xl"
-            alt="not-found"
-          />
-        {:else}
+	<div class={cn(`wrapper p-4 py-1`, '')} style="max-height: 380px; z-index: {ZIndex + i};">
+		<div class="relative overflow-hidden rounded-xl border-[1px] border-[#2d3139] bg-[#17191c]">
+			<div class="overlay relative w-full">
+				{#if project.photo === ''}
+					<img src={notFound} class="z-0 mx-auto overflow-hidden rounded-xl" alt="not-found" />
+				{:else}
+					<img
+						src={project.photo}
+						class="fondo z-0 mx-auto overflow-hidden rounded-xl"
+						alt={project.name + ' photo'}
+					/>
 
-          <img
-            src={project.photo}
-            class="fondo z-0 mx-auto overflow-hidden rounded-xl"
-            alt={project.name + ' photo'}
-          />
+					<div class="fondo-hostia-ya absolute left-0 top-0 h-full w-full"></div>
+				{/if}
+			</div>
 
-          <div class="absolute w-full h-full top-0 left-0 fondo-hostia-ya" ></div>
-        {/if}
-      </div>
-
-			<div class="absolute left-6 top-6 z-[100] flex gap-3 ">
+			<div class="absolute left-6 top-6 z-[100] flex gap-3">
 				<img
 					class="z-[100] h-[40px] w-[40px] rounded-lg border-2 border-[#313C4A]"
 					src={project.icon}
@@ -93,7 +83,9 @@
 			{#if project.badges.length != 0}
 				<div class="absolute right-5 top-5 flex gap-2">
 					{#each project.badges as badge}
-						<Badge variant="default" class="text-lg" style="/* z-index: {ZIndex + i} */">{badge}</Badge>
+						<Badge variant="default" class="text-lg" style="/* z-index: {ZIndex + i} */"
+							>{badge}</Badge
+						>
 					{/each}
 				</div>
 			{/if}
@@ -110,22 +102,20 @@
 
 <style>
 	.overlay img {
-		  filter: blur(1px);
-		  transition: filter 0.25s ease;
-  }
+		filter: blur(1px);
+		transition: filter 0.25s ease;
+	}
 
-  .overlay:hover img {
-		  filter: unset;
-  }
+	.overlay:hover img {
+		filter: unset;
+	}
 
-  .fondo-hostia-ya {
-     background: linear-gradient(
-       0deg,
-       rgba(0, 0, 0, 0.7) 0%,
-       rgba(150, 150, 150, 0.9) 80%,
-       rgba(255, 255, 255, 0.1) 100%
-     );
-  }
-
-
+	.fondo-hostia-ya {
+		background: linear-gradient(
+			0deg,
+			rgba(0, 0, 0, 0.7) 0%,
+			rgba(150, 150, 150, 0.9) 80%,
+			rgba(255, 255, 255, 0.1) 100%
+		);
+	}
 </style>
