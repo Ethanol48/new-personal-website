@@ -10,7 +10,7 @@
 	<Tooltip.Trigger>
 		<div
 			class={cn(
-				'prog flex size-14 items-center justify-center overflow-hidden rounded border-[1px] border-[#212C3A] bg-gray-800 p-1  text-2xl transition ease-in-out hover:border-gray-600 hover:bg-gray-700',
+				'prog flex max-md:size-12 md:size-14 items-center justify-center overflow-hidden rounded border-[1px] border-[#212C3A] bg-gray-800 p-1  text-2xl transition ease-in-out hover:border-gray-600 hover:bg-gray-700',
 				className
 			)}
 		>

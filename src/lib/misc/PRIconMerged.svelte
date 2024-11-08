@@ -8,11 +8,26 @@
 	export { className as class };
 </script>
 
+<div 
+  class={
+  cn("rounded-lg border-2 border-[#313C4A] text-[#815CE1] flex justify-center items-center", className)
+  }
+  style="margin-top: 0px;"
+>
 <i
-	class={cn(
-		'fa-solid fa-code-merge w-fit rounded-lg border-2 border-[#313C4A] p-3 text-2xl text-[#815CE1]',
-		className
-	)}
-	style="margin-top: 0px;"
+	class={'fa-solid fa-code-merge w-fit text-center'}
+	
 >
 </i>
+</div>
+
+<style>
+@-moz-document url-prefix() {
+  /* Estilos específicos para Firefox */
+  i {
+    scale: 1.3;
+    /* Otros estilos específicos */
+  }
+}
+
+</style>

@@ -43,8 +43,8 @@
 						A sample of projects and open-sourced contributions that I've worked in the past,
 						showing what tools I used.
 					</p>
-					<div class="mx-auto flex w-[380px] flex-col justify-center">
-						<div class="w-fit flex flex-col gap-4">
+					<div class="mx-auto flex max-md:w-full md:w-[380px] flex-col justify-center">
+						<div id="exp-container" class="w-full flex flex-col gap-4 justify-center">
 							<GithubPR {ZIndex} />
 							<ExperienceImages ZIndex={ZIndex + 20} />
 						</div>
@@ -56,9 +56,6 @@
 </OnMount>
 
 <style lang="scss">
-  // TODO: refactor this css for each component 
-  // one for PRs other for Images / websites
-
 
 
 	// #experience-card {

@@ -77,13 +77,13 @@
 					src={project.icon}
 					alt=""
 				/>
-				<PrIconMerged class="bg-[#1D2730]" />
+				<PrIconMerged class="bg-[#1D2730] h-[40px] w-[40px] text-xl" />
 			</div>
 
 			{#if project.badges.length != 0}
 				<div class="absolute right-5 top-5 flex gap-2">
 					{#each project.badges as badge}
-						<Badge variant="default" class="text-lg" style="/* z-index: {ZIndex + i} */"
+						<Badge variant="default" class="max-md:text-sm md:text-lg" style="/* z-index: {ZIndex + i} */"
 							>{badge}</Badge
 						>
 					{/each}
@@ -102,6 +102,7 @@
 </div>
 
 <style lang="scss">
+
 	.overlay img {
 		filter: blur(1px);
 		transition: filter 0.25s ease;

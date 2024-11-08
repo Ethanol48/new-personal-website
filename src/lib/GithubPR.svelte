@@ -56,13 +56,13 @@
 				{/if}
 
         {#if pr.type === 'contribuition'}
-				  <PrIconMerged />
+				  <PrIconMerged class={"h-[40px] w-[40px] text-xl"} />
         {/if}
 
 				{#if pr.badges.length != 0}
 					<div class="absolute right-4 top-3 flex gap-2">
 						{#each pr.badges as badge}
-							<Badge variant="default" class="z-50 text-lg">{badge}</Badge>
+							<Badge variant="default" class="z-50 max-md:text-sm md:text-lg">{badge}</Badge>
 						{/each}
 					</div>
 				{/if}

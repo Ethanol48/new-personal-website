@@ -89,7 +89,6 @@
 		elem = elem.target;
 
 		let banderas = elem.querySelectorAll('.container-bandera');
-		console.log('mouse enter');
 
 		for (let i = 0; i < banderas.length; i++) {
 			const flag = banderas[i];
@@ -144,7 +143,7 @@
 					</div>
 
 					<h4 class="mt-5 mb-3">Tools that I'm confortable with:</h4>
-					<div id="prog-icons" class="flex gap-3">
+					<div id="prog-icons" class="flex flex-wrap gap-3">
 						{#each toolsImConfortable as tool}
 							{#if tool.name == 'Rust'}
 								<ProgIcon class={'p-[-2]'} image={tool.icon} alt={tool.name} />
@@ -154,7 +153,7 @@
 						{/each}
 					</div>
 					<h4 class="mt-5 mb-3">Other tools that I have used:</h4>
-					<div id="prog-icons" class="flex gap-3">
+					<div id="prog-icons" class="flex flex-wrap gap-3">
 						{#each toolsIHaveUsed as tool}
 							{#if tool.name == 'Rust'}
 								<ProgIcon class={'p-[-2]'} image={tool.icon} alt={tool.name} />
@@ -167,7 +166,7 @@
 			</Card.Content>
 		</Card.Root>
 
-		<div class="absolute right-2 top-[-20px] flex" style="z-index: -2;">
+		<div id="banderas" class="absolute right-2 top-[-25px] flex" style="z-index: -2;">
 			<FlagOfFrance />
 			<FlagOfSpain />
 		</div>
@@ -175,6 +174,16 @@
 </OnMount>
 
 <style lang="scss">
+
+  @-moz-document url-prefix() {
+    /* Estilos específicos para Firefox */
+    #banderas {
+      margin-top: 5px;
+      /* Otros estilos específicos */
+    }
+  }
+
+
 	#prog-icons:hover {
 		:global(.prog:hover) {
 			scale: 1.05;

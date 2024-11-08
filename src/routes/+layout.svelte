@@ -18,13 +18,4 @@
 
 <main class="dark relative flex h-screen w-screen flex-col items-center gap-2 pt-2">
 	{@render children()}
-
-	<div class="flex w-full items-center justify-center gap-2 py-10">
-		<p>Made with</p>
-		<i class="fa-solid fa-heart text-[#bf2222]"></i>
-		<p style="margin: 0px;">using</p>
-		<img src={svelte} class="size-6" alt="svelte" />
-		<p style="margin: 0px;">and</p>
-		<img src={shadcn} class="size-6 rounded" alt="svelte-shadcn" />
-	</div>
 </main>
