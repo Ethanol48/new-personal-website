@@ -18,14 +18,20 @@
 		icon: string;
 	};
 
+
+	import dockerIcon from '$lib/assets/prog-icons/docker-icon.svg';
+	import cSharpIcon from '$lib/assets/prog-icons/C-sharp-icon.svg';
+	import nextjsIcon from '$lib/assets/prog-icons/nextjs-icon.svg';
+	import reactIcon from '$lib/assets/prog-icons/react-icon.svg';
+
 	let toolsIHaveUsed: Tool[] = [
 		{
 			name: 'NextJs',
-			icon: rustIcon
+			icon: nextjsIcon
 		},
 		{
 			name: 'React',
-			icon: rustIcon
+			icon: reactIcon
 		},
 		{
 			name: 'Rust',
@@ -33,12 +39,12 @@
 		},
 		{
 			name: 'Docker',
-			icon: rustIcon
+			icon: dockerIcon
 		},
 
 		{
 			name: 'C#',
-			icon: rustIcon
+			icon: cSharpIcon
 		}
 	];
 
@@ -137,7 +143,7 @@
 						</p>
 					</div>
 
-					<h4 class="mb-2">Tools that I'm confortable with:</h4>
+					<h4 class="mt-5 mb-3">Tools that I'm confortable with:</h4>
 					<div id="prog-icons" class="flex gap-3">
 						{#each toolsImConfortable as tool}
 							{#if tool.name == 'Rust'}
@@ -147,7 +153,7 @@
 							{/if}
 						{/each}
 					</div>
-					<h4 class="mb-2">Other tools that I have used:</h4>
+					<h4 class="mt-5 mb-3">Other tools that I have used:</h4>
 					<div id="prog-icons" class="flex gap-3">
 						{#each toolsIHaveUsed as tool}
 							{#if tool.name == 'Rust'}
