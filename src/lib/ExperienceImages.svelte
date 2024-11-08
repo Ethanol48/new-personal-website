@@ -3,8 +3,7 @@
 	import { Badge } from '$lib/components/ui/badge/index.js';
 	import daimoLogo from '$lib/assets/daimo-logo.png';
 	import daimo from '$lib/assets/Daimo.webp';
-	import linearGradient from '$lib/assets/linear-graddient.svg';
-	import PrIconMerged from './PRIconMerged.svelte';
+	import PrIconMerged from '$lib/misc/PRIconMerged.svelte';
 
 	type Project = {
 		name: string;
@@ -24,14 +23,14 @@
 			icon: daimoLogo,
 			badges: ['React', 'Typescript']
 		},
-		{
-			name: 'Daimo',
-			date: 'July 2024',
-			desc: `Implementation of i18n and translation to Spanish to Daimo's <a class="link" href="https://daimo.com">website</a> and <a class="link" href="https://apps.apple.com/us/app/daimo/id6459700343">mobile app</a>`,
-			photo: daimo,
-			icon: daimoLogo,
-			badges: ['React', 'Typescript']
-		}
+		//{
+		//	name: 'Daimo',
+		//	date: 'July 2024',
+		//	desc: `Implementation of i18n and translation to Spanish to Daimo's <a class="link" href="https://daimo.com">website</a> and <a class="link" href="https://apps.apple.com/us/app/daimo/id6459700343">mobile app</a>`,
+		//	photo: daimo,
+		//	icon: daimoLogo,
+		//	badges: ['React', 'Typescript']
+		//}
 	];
 
 	import { cn } from './utils';
@@ -54,6 +53,7 @@
 	export let ZIndex: number;
 </script>
 
+<div id="experiences">
 {#each projects as project, i}
 	<div class={cn(`wrapper p-4 py-1`, '')} style="max-height: 380px; z-index: {ZIndex + i};">
 		<div class="relative overflow-hidden rounded-xl border-[1px] border-[#2d3139] bg-[#17191c]">
@@ -99,8 +99,9 @@
 		</div>
 	</div>
 {/each}
+</div>
 
-<style>
+<style lang="scss">
 	.overlay img {
 		filter: blur(1px);
 		transition: filter 0.25s ease;
@@ -118,4 +119,46 @@
 			rgba(255, 255, 255, 0.1) 100%
 		);
 	}
+
+
+
+
+
+	
+	@media (min-width: 768px) {
+		#experiences {
+			> div {
+				transition: margin 0.7s ease-in-out;
+	
+				@for $i from 1 through 4 {
+					$top-margin: if($i == 1, 0, (-150px * ($i - 1)));
+					// $side-margin: 5px * ($i - 1); // Decrementa 5px en cada iteración
+					$side-margin: 10px - 5px * ($i - 1); // Decrementa 5px en cada iteración
+	
+					&:nth-child(#{$i}) {
+						margin-top: $top-margin;
+						margin-left: $side-margin;
+						margin-right: $side-margin;
+					}
+				}
+			}
+		}
+	}
+	
+	@media (max-width: 768px) {
+		#experiences {
+			> div {
+				transition: margin 0.7s ease-in-out;
+				margin-top: 10px;
+			}
+		}
+	}
+
+
+  #experiences:hover {
+    > div {
+      margin: 0;
+      margin-top: 10px;
+    }
+  }
 </style>

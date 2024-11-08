@@ -44,7 +44,7 @@
 						showing what tools I used.
 					</p>
 					<div class="mx-auto flex w-[380px] flex-col justify-center">
-						<div id="experiences" class="w-fit">
+						<div class="w-fit flex flex-col gap-4">
 							<GithubPR {ZIndex} />
 							<ExperienceImages ZIndex={ZIndex + 20} />
 						</div>
@@ -56,42 +56,47 @@
 </OnMount>
 
 <style lang="scss">
-	#experience-card {
-		&:hover {
-			#experiences {
-				> :global(div) {
-					margin: 0;
-					margin-top: 10px;
-				}
-			}
-		}
-	}
+  // TODO: refactor this css for each component 
+  // one for PRs other for Images / websites
 
-	@media (min-width: 768px) {
-		#experiences {
-			> :global(div) {
-				transition: margin 0.7s ease-in-out;
 
-				@for $i from 1 through 4 {
-					$top-margin: if($i == 1, 0, (-100px * ($i - 1)) + if($i == 2, -10, +17));
-					$side-margin: 10px - 5px * ($i - 1); // Decrementa 5px en cada iteración
 
-					&:nth-child(#{$i}) {
-						margin-top: $top-margin;
-						margin-left: $side-margin;
-						margin-right: $side-margin;
-					}
-				}
-			}
-		}
-	}
-
-	@media (max-width: 768px) {
-		#experiences {
-			> :global(div) {
-				transition: margin 0.7s ease-in-out;
-				margin-top: 10px;
-			}
-		}
-	}
+	// #experience-card {
+	// 	&:hover {
+	// 		#experiences {
+	// 			> :global(div) {
+	// 				margin: 0;
+	// 				margin-top: 10px;
+	// 			}
+	// 		}
+	// 	}
+	// }
+	//
+	// @media (min-width: 768px) {
+	// 	#experiences {
+	// 		> :global(div) {
+	// 			transition: margin 0.7s ease-in-out;
+	//
+	// 			@for $i from 1 through 4 {
+	// 				$top-margin: if($i == 1, 0, (-100px * ($i - 1)) + if($i == 2, -10, +17));
+	// 				$side-margin: 10px - 5px * ($i - 1); // Decrementa 5px en cada iteración
+	//
+	// 				&:nth-child(#{$i}) {
+	// 					margin-top: $top-margin;
+	// 					margin-left: $side-margin;
+	// 					margin-right: $side-margin;
+	// 				}
+	// 			}
+	// 		}
+	// 	}
+	// }
+	//
+	// @media (max-width: 768px) {
+	// 	#experiences {
+	// 		> :global(div) {
+	// 			transition: margin 0.7s ease-in-out;
+	// 			margin-top: 10px;
+	// 		}
+	// 	}
+	// }
 </style>
