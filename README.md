@@ -2,6 +2,15 @@
 
 This website is still under development 
 
+## TODO
+
+- [ ] Create legend to explain icons 
+- [ ] Finalize details of notations
+
+- [ ] Decoration
+    - [ ] Names of languages and tools displayed??
+
+
 
 ## Creating a project
 
