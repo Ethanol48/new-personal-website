@@ -73,7 +73,7 @@
 					</div>
 
 					<div
-						class="flex gap-3 text-3xl"
+						class="flex gap-3 text-3xl justify-end"
 						aria-label="Email"
 						use:clickToCopy={'contact@ethan-rouimi.com'}
 					>

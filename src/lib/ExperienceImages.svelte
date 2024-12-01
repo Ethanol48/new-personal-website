@@ -21,7 +21,7 @@
 			desc: `Implementation of i18n and translation to Spanish to Daimo's <a class="link" href="https://daimo.com">website</a> and <a class="link" href="https://apps.apple.com/us/app/daimo/id6459700343">mobile app</a>`,
 			photo: daimo,
 			icon: daimoLogo,
-			badges: ['React', 'Typescript']
+			badges: ['Typescript', 'React']
 		},
 		//{
 		//	name: 'Daimo',
@@ -73,15 +73,15 @@
 
 			<div class="absolute left-6 top-6 z-[100] flex gap-3">
 				<img
-					class="z-[100] h-[40px] w-[40px] rounded-lg border-2 border-[#313C4A]"
+					class="z-[100] h-[35px] w-[35px]  md:h-[40px] md:w-[40px] rounded-lg border-2 border-[#313C4A]"
 					src={project.icon}
 					alt=""
 				/>
-				<PrIconMerged class="bg-[#1D2730] h-[40px] w-[40px] text-xl" />
+				<PrIconMerged class={"bg-[#1D2730] h-[35px] w-[35px] md:h-[40px] md:w-[40px] text-md md:text-xl"} />
 			</div>
 
 			{#if project.badges.length != 0}
-				<div class="absolute right-5 top-5 flex gap-2">
+				<div class="absolute right-5 top-5 flex gap-2 flex-wrap max-w-[100px] justify-end">
 					{#each project.badges as badge}
 						<Badge variant="default" class="max-md:text-sm md:text-lg" style="/* z-index: {ZIndex + i} */"
 							>{badge}</Badge
@@ -90,8 +90,8 @@
 				</div>
 			{/if}
 
-			<div class="absolute bottom-5 left-4 p-2" style="/* z-index: {ZIndex + i} */">
-				<h3 class="text-3xl">{project.name}</h3>
+			<div class="absolute bottom-5 left-4 p-2 max-h-32 overflow-auto">
+				<h3 class="text-2xl md:text-3xl  ">{project.name}</h3>
 				<p class="m-0" style="font-size: 15px;">
 					{@html project.desc}
 				</p>
@@ -125,41 +125,42 @@
 
 
 
-	
-	@media (min-width: 768px) {
-		#experiences {
-			> div {
-				transition: margin 0.7s ease-in-out;
-	
-				@for $i from 1 through 4 {
-					$top-margin: if($i == 1, 0, (-150px * ($i - 1)));
-					// $side-margin: 5px * ($i - 1); // Decrementa 5px en cada iteración
-					$side-margin: 10px - 5px * ($i - 1); // Decrementa 5px en cada iteración
-	
-					&:nth-child(#{$i}) {
-						margin-top: $top-margin;
-						margin-left: $side-margin;
-						margin-right: $side-margin;
-					}
-				}
-			}
-		}
-	}
-	
-	@media (max-width: 768px) {
-		#experiences {
-			> div {
-				transition: margin 0.7s ease-in-out;
-				margin-top: 10px;
-			}
-		}
-	}
+	// Uncomment for when multiple projects
 
-
-  #experiences:hover {
-    > div {
-      margin: 0;
-      margin-top: 10px;
-    }
-  }
+	// @media (min-width: 768px) {
+	// 	#experiences {
+	// 		> div {
+	// 			transition: margin 0.7s ease-in-out;
+	//
+	// 			@for $i from 1 through 4 {
+	// 				$top-margin: if($i == 1, 0, (-150px * ($i - 1)));
+	// 				// $side-margin: 5px * ($i - 1); // Decrementa 5px en cada iteración
+	// 				$side-margin: 10px - 5px * ($i - 1); // Decrementa 5px en cada iteración
+	//
+	// 				&:nth-child(#{$i}) {
+	// 					margin-top: $top-margin;
+	// 					margin-left: $side-margin;
+	// 					margin-right: $side-margin;
+	// 				}
+	// 			}
+	// 		}
+	// 	}
+	// }
+	//
+	// @media (max-width: 768px) {
+	// 	#experiences {
+	// 		> div {
+	// 			transition: margin 0.7s ease-in-out;
+	// 			margin-top: 10px;
+	// 		}
+	// 	}
+	// }
+	//
+	//
+	//  #experiences:hover {
+	//    > div {
+	//      margin: 0;
+	//      margin-top: 10px;
+	//    }
+	//  }
 </style>

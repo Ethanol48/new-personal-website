@@ -20,6 +20,7 @@ html body {
 	background-color: hsl(var(--primary));
 }
 
+
 /* Typography */
 h1 {
 	@apply scroll-m-20 text-3xl font-extrabold tracking-tight lg:text-5xl;

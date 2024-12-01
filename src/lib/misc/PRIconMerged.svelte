@@ -14,11 +14,10 @@
   }
   style="margin-top: 0px;"
 >
-<i
-	class={'fa-solid fa-code-merge w-fit text-center'}
-	
->
-</i>
+  <i
+    class={'fa-solid fa-code-merge'}
+  >
+  </i>
 </div>
 
 <style>

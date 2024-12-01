@@ -42,13 +42,13 @@
 				{#if pr.icon !== ''}
           {#if pr.type === 'repo'}
             <img
-              class="mt-0 h-[40px] w-[40px] rounded-lg border-2 border-[#313C4A] p-2"
+              class="mt-0 h-[35px] w-[35px]  md:h-[40px] md:w-[40px] text-md md:text-xl rounded-lg border-2 border-[#313C4A] p-2"
               src={pr.icon}
               alt=""
             />
           {:else}
             <img
-              class="mt-0 h-[40px] w-[40px] rounded-lg border-2 border-[#313C4A] p-1"
+              class="mt-0 h-[35px] w-[35px]  md:h-[40px] md:w-[40px] text-md md:text-xl rounded-lg border-2 border-[#313C4A] p-1"
               src={pr.icon}
               alt=""
             />
@@ -56,20 +56,20 @@
 				{/if}
 
         {#if pr.type === 'contribuition'}
-				  <PrIconMerged class={"h-[40px] w-[40px] text-xl"} />
+				  <PrIconMerged class={"h-[35px] w-[35px] md:h-[40px] md:w-[40px] text-md md:text-xl"} />
         {/if}
 
 				{#if pr.badges.length != 0}
 					<div class="absolute right-4 top-3 flex gap-2">
 						{#each pr.badges as badge}
-							<Badge variant="default" class="z-50 max-md:text-sm md:text-lg">{badge}</Badge>
+							<Badge variant="default" class="z-50 text-sm md:text-lg">{badge}</Badge>
 						{/each}
 					</div>
 				{/if}
 			</Card.Header>
 			<Card.Content>
 				<a href={pr.repo}>
-					<h3 class="w-fit text-2xl hover:underline">
+					<h3 class="w-fit text-xl md:text-2xl hover:underline">
 						{pr.repo.split('https://github.com/')[1]}
 					</h3>
 				</a>

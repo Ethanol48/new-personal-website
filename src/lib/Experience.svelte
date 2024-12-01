@@ -1,6 +1,7 @@
 <script lang="ts">
 	import * as Card from '$lib/components/ui/card';
 	import brick from '$lib/assets/brick.png';
+	import arrow from '$lib/assets/arrow.svg';
 	import ExperienceImages from '$lib/ExperienceImages.svelte';
 	import GithubPR from '$lib/GithubPR.svelte';
 
@@ -12,9 +13,13 @@
         </div>
   */
 
+  import { Button } from "$lib/components/ui/button/index.js";
+  import * as Popover from "$lib/components/ui/popover/index.js";
+
 	import { fade } from 'svelte/transition';
 	import OnMount from './OnMount.svelte';
 	import { cn } from './utils';
+	import { Content } from './components/ui/accordion';
 
 	let { delay = 0, duration = 0, class: className = '' } = $props();
 	let ZIndex: number = $state(0);
@@ -23,7 +28,7 @@
 <OnMount>
 	<div
 		id="experience-card"
-		class={cn('flex w-full flex-col justify-start', className)}
+		class={cn('flex w-full flex-col justify-start relative', className)}
 		in:fade={{
 			duration: duration,
 			delay: delay
@@ -32,14 +37,42 @@
 		<Card.Root class="pt-0">
 			<Card.Header>
 				<div class="flex flex-row items-center gap-4">
-					<h2 class="mb-2 mt-0">Past Work</h2>
-					<img src={brick} class="right-2 top-2 size-9" alt="" />
+					<h2 class="mb-2 mt-0" style="font-size: 160%;">Past Work</h2>
+					<img src={brick} class="mt-[-10px] size-8 md:size-9" alt="" />
 				</div>
 			</Card.Header>
 
 			<div class="w-full">
 				<Card.Content class="px-1 pt-2">
-					<p class="mb-5 px-5">
+
+          <Popover.Root>
+            <Popover.Trigger asChild let:builder>
+              <Button builders={[builder]} variant="outline" class="dark absolute top-8 right-10">
+                Legend 
+              </Button>
+
+            </Popover.Trigger>
+            <Popover.Content class="dark"> 
+              <div>
+                Hola!!
+              </div>
+            </Popover.Content>
+          </Popover.Root>
+
+        <div class="hand-written -rotate-6 flex flex-col absolute top-[40px] right-[-80px] invisible md:visible w-24">
+          <div class="relative flex">
+            <div class="absolute bottom-6 left-[-3px] w-fit">
+              <p>Click to</p>
+              <p  style="margin: 0px; padding: 0px;">learn more !!</p>
+            </div>
+            <img src={arrow} class="size-8 absolute bottom-10 left-[-35px]" style="transform: scale(-1, 1) rotate(-15deg);" alt="">
+          </div>
+        </div>
+
+        
+
+
+					<p class="mb-5 px-5" style="margin-top: 0px;">
 						A sample of projects and open-sourced contributions that I've worked in the past,
 						showing what tools I used.
 					</p>

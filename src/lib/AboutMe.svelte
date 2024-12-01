@@ -23,6 +23,7 @@
 	import cSharpIcon from '$lib/assets/prog-icons/C-sharp-icon.svg';
 	import nextjsIcon from '$lib/assets/prog-icons/nextjs-icon.svg';
 	import reactIcon from '$lib/assets/prog-icons/react-icon.svg';
+	import arrow from '$lib/assets/arrow.svg';
 
 	let toolsIHaveUsed: Tool[] = [
 		{
@@ -129,11 +130,21 @@
 		<Card.Root class="pt-0">
 			<Card.Header>
 				<div class="flex flex-row items-center gap-4">
-					<h2 class="mt-0">About me</h2>
+					<h2 class="mt-0" style="font-size: 160%;">About me</h2>
 				</div>
 			</Card.Header>
 
 			<Card.Content class="flex flex-col gap-2 px-7 pt-3">
+        <div class="hand-written -rotate-6 flex flex-col absolute bottom-7 right-12 invisible md:visible w-24">
+            <div class="relative flex">
+              <div class="absolute bottom-0 left-[-35px] w-fit">
+                <p>Hover over </p>
+                <p  style="margin: 0px; padding: 0px;">the icons !!</p>
+              </div>
+              <img src={arrow} class="size-8 absolute bottom-[-5] left-[-65px]" style="transform: scale(1, 1) rotate(165deg);" alt="">
+          </div>
+        </div>
+
 				<div class="flex w-full flex-col gap-2">
 					<div class="mb-3 flex flex-col gap-3">
 						<p class="text-lg" style="margin-top: 0px;">
