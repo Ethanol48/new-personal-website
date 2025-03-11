@@ -44,13 +44,13 @@
             <img
               class="mt-0 h-[35px] w-[35px]  md:h-[40px] md:w-[40px] text-md md:text-xl rounded-lg border-2 border-[#313C4A] p-2"
               src={pr.icon}
-              alt=""
+              alt="repo"
             />
           {:else}
             <img
               class="mt-0 h-[35px] w-[35px]  md:h-[40px] md:w-[40px] text-md md:text-xl rounded-lg border-2 border-[#313C4A] p-1"
               src={pr.icon}
-              alt=""
+              alt="contribiution"
             />
           {/if}
 				{/if}

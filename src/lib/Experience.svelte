@@ -5,6 +5,9 @@
 	import ExperienceImages from '$lib/ExperienceImages.svelte';
 	import GithubPR from '$lib/GithubPR.svelte';
 
+
+	import PrIconMerged from '$lib/misc/PRIconMerged.svelte';
+
 	/*
         <div class="ml-7 mt-5 flex items-center justify-start gap-4">
           <p class="m-0 p-0 text-2xl text-sky-200">{project.date}</p>
@@ -19,7 +22,7 @@
 	import { fade } from 'svelte/transition';
 	import OnMount from './OnMount.svelte';
 	import { cn } from './utils';
-	import { Content } from './components/ui/accordion';
+	import repo from '$lib/assets/prog-icons/repo-icon.svg';
 
 	let { delay = 0, duration = 0, class: className = '' } = $props();
 	let ZIndex: number = $state(0);
@@ -52,10 +55,29 @@
               </Button>
 
             </Popover.Trigger>
-            <Popover.Content class="dark"> 
-              <div>
-                Hola!!
-              </div>
+            <Popover.Content class="dark w-fit bg-transparent border-transparent"> 
+ 
+              <Card.Root class="border-[#2d3139] bg-[#17191c] w-[250px]">
+                <Card.Header>
+                  <h2 class="underline underline-offset-2">Icons</h2>
+                </Card.Header>
+                <Card.Content class="pt-3">
+                  <div class="flex flex-col-reverse gap-4">
+                    <div class="flex gap-4 items-center">
+                      <img
+                        class="mt-0 h-[35px] w-[35px]  md:h-[40px] md:w-[40px] text-md md:text-xl rounded-lg border-2 border-[#313C4A] p-2"
+                        src={repo}
+                        alt="repo"
+                      />
+                      <h3 class="mt-0 mb-0 p-0 h-fit" style="font-size: 1.45rem;">Repository</h3>
+                    </div>
+                    <div class="flex gap-4 items-center">
+                      <PrIconMerged class={"h-[35px] w-[35px] md:h-[40px] md:w-[40px] text-md md:text-xl"} />
+                      <h3 class="mt-0 mb-0 p-0 h-fit" style="font-size: 1.45rem;">Public contribiution</h3>
+                    </div>
+                </Card.Content>
+              </Card.Root>
+
             </Popover.Content>
           </Popover.Root>
 
@@ -68,10 +90,6 @@
             <img src={arrow} class="size-8 absolute bottom-10 left-[-35px]" style="transform: scale(-1, 1) rotate(-15deg);" alt="">
           </div>
         </div>
-
-        
-
-
 					<p class="mb-5 px-5" style="margin-top: 0px;">
 						A sample of projects and open-sourced contributions that I've worked in the past,
 						showing what tools I used.

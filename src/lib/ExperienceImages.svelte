@@ -24,7 +24,7 @@
 			badges: ['Typescript', 'React']
 		},
 		//{
-		//	name: 'Daimo',
+		//	name: 'Daimo 2',
 		//	date: 'July 2024',
 		//	desc: `Implementation of i18n and translation to Spanish to Daimo's <a class="link" href="https://daimo.com">website</a> and <a class="link" href="https://apps.apple.com/us/app/daimo/id6459700343">mobile app</a>`,
 		//	photo: daimo,

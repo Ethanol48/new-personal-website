@@ -19,35 +19,12 @@
 	};
 
 
+	import ocamlIcon from '$lib/assets/prog-icons/ocaml-icon.svg';
 	import dockerIcon from '$lib/assets/prog-icons/docker-icon.svg';
 	import cSharpIcon from '$lib/assets/prog-icons/C-sharp-icon.svg';
 	import nextjsIcon from '$lib/assets/prog-icons/nextjs-icon.svg';
 	import reactIcon from '$lib/assets/prog-icons/react-icon.svg';
 	import arrow from '$lib/assets/arrow.svg';
-
-	let toolsIHaveUsed: Tool[] = [
-		{
-			name: 'NextJs',
-			icon: nextjsIcon
-		},
-		{
-			name: 'React',
-			icon: reactIcon
-		},
-		{
-			name: 'Rust',
-			icon: rustIcon
-		},
-		{
-			name: 'Docker',
-			icon: dockerIcon
-		},
-
-		{
-			name: 'C#',
-			icon: cSharpIcon
-		}
-	];
 
 	let toolsImConfortable: Tool[] = [
 		{
@@ -74,6 +51,36 @@
 			name: 'Python',
 			icon: pythonIcon
 		}
+	];
+
+	let toolsIHaveUsed: Tool[] = [
+		{
+			name: 'NextJs',
+			icon: nextjsIcon
+		},
+		{
+			name: 'React',
+			icon: reactIcon
+		},
+		{
+			name: 'Rust',
+			icon: rustIcon
+		},
+		{
+			name: 'Docker',
+			icon: dockerIcon
+		},
+
+		{
+			name: 'C#',
+			icon: cSharpIcon
+		}, 
+    
+    {
+      name: 'Ocaml',
+      icon: ocamlIcon
+    }
+    
 	];
 
 	import { fade } from 'svelte/transition';
@@ -137,11 +144,11 @@
 			<Card.Content class="flex flex-col gap-2 px-7 pt-3">
         <div class="hand-written -rotate-6 flex flex-col absolute bottom-7 right-12 invisible md:visible w-24">
             <div class="relative flex">
-              <div class="absolute bottom-0 left-[-35px] w-fit">
+              <div class="absolute bottom-0 left-[-15px] w-fit">
                 <p>Hover over </p>
                 <p  style="margin: 0px; padding: 0px;">the icons !!</p>
               </div>
-              <img src={arrow} class="size-8 absolute bottom-[-5] left-[-65px]" style="transform: scale(1, 1) rotate(165deg);" alt="">
+              <img src={arrow} class="size-8 absolute bottom-[-5] left-[-35px]" style="transform: scale(1, 1) rotate(165deg);" alt="">
           </div>
         </div>
 
@@ -172,8 +179,10 @@
 								<ProgIcon image={tool.icon} alt={tool.name} />
 							{/if}
 						{/each}
+
 					</div>
 				</div>
+
 			</Card.Content>
 		</Card.Root>
 
