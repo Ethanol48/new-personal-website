@@ -73,7 +73,7 @@
 					</div>
 
 					<div
-						class="flex gap-3 text-3xl justify-end"
+						class="flex justify-end gap-3 text-3xl"
 						aria-label="Email"
 						use:clickToCopy={'contact@ethan-rouimi.com'}
 					>
@@ -103,15 +103,14 @@
 							</div>
 						</a>
 					</div>
-
 				</div>
 
-						<div class="flex align-middle">
-							<img src={mapPing} class="mt-[2px] h-[20px]" alt="" />
-							<h2 class="m-0 p-0 text-xl font-normal text-[#aaaaaa]">Paris, France</h2>
-							<img src={franceFlag} class="ml-2 mt-[2px] h-[20px]" alt="" />
-						</div>
-      </Card.Content>
+				<div class="flex align-middle">
+					<img src={mapPing} class="mt-[2px] h-[20px]" alt="" />
+					<h2 class="m-0 p-0 text-xl font-normal text-[#aaaaaa]">Paris, France</h2>
+					<img src={franceFlag} class="ml-2 mt-[2px] h-[20px]" alt="" />
+				</div>
+			</Card.Content>
 
 			<Card.Content class="mt-[-20px] gap-1 text-xl">
 				<p>First year student in Computer Science Engineering at EPITA, Paris, France.</p>
